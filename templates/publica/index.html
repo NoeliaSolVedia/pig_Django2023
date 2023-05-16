@@ -1,0 +1,192 @@
+{% extends './base.html' %}
+
+{% block titulo %}Inicio IRPAÑA{% endblock titulo %}
+
+{% block contenido %}
+  {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> {% endcomment %}
+  <!-- Main -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/publica/css/index.css'%}?v={% now 'U' %}">  
+
+  <section id="section_main">
+    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="{% static '/img/hornocal1.png'%}" alt="Hornocal">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static '/img/quebrada_humahuaca1.jpg'%}" alt="Quebrada de Humahuaca">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="{% static '/img/parque_calilegua1.jpg'%}" alt="Parque Nacional Calilegua">
+        </div>
+        <div class="overlay">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-md-6 offset-md-6 text-left text-md-right">
+                <h3 class="d-none d-md-block">
+                  Jujuy te ofrece una amplia oferta turística y cultural, además de paisajes maravillosos, una rica cultura y la calidez de su gente.
+                </h3> <br>
+                <h3 class="d-none d-md-block">
+                  Te esperamos! 
+                </h3> <br>
+                <p class="d-none d-md-block">
+                  Registrate si aun no lo has hecho y accede a toda la información que necesites de nuestra provincia.
+                </p>
+                <a href="{% url 'registro' %}" class="btn btn-outline-light btn-registro">REGISTRO</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+  <!-- /Main -->
+  <section class="portafolio">
+    <div class="contenedor">
+        <h2 class="titulo">Principales destinos</h2>
+        <div class="galeria-port">
+            <div class="imagen-port">
+              <img src="{% static '/img/cerro7.jpg'%}" alt="Cerro 7 colores">
+              <div class="hover-galeria">
+                  <p>Cerro de los siete colores - Purmamarca</p>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/casabindo.jpg'%}" alt="Casabindo">
+              <div class="hover-galeria">
+                  <p>Casabindo - Cochinoca</p>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/dique_cienega.png'%}" alt="Dique la Cienega">
+              <div class="hover-galeria">
+                  <p>Dique la Cienega - El Carmen</p>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/parque_calilegua2.jpg'%}" alt="Parque Nac. Calilegua">
+              <div class="hover-galeria">
+                  <p>Parque Nacional Calilegua - Calilegua</p>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/salinas.png'%}" alt="Salinas Grandes">
+              <div class="hover-galeria">
+                  <p>Salinas Grandes - Cochinoca</p>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/terma de reyes.jpg'%}" alt="Terma de Reyes">
+              <div class="hover-galeria">
+                  <p>Terma de Reyes - Reyes</p>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/pucara.jpg'%}" alt="Pucara">
+              <div class="hover-galeria">
+                  <p>Pucará de Tilcara - Tilcara</p>
+              </div>
+
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/hornocal2.png'%}" alt="Hornocal">
+              <div class="hover-galeria">
+                  <p>Serranía del Hornocal - Humahuaca</p>
+              </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Seccion Noticias-->
+  <section id="news">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-lg-6 pl-0 pr-0">
+          <img src="{% static '/img/punta_corral1.png'%}" alt="Punta Corral" />
+        </div>
+        <div class="col-12 col-lg-6 pt-4 pb-4">
+          <h2>Peregrinación al Santuario de Punta Corral - 2023</h2>
+          <p> Movidos por un profundo sentimiento hacia la mamita del Cerro, cientos de peregrinos y las bandas de sikuris realizaron el ascenso masivo hacia el santuario de la Virgen de Punta Corral para poder verla y tocar su manto confiando en sus milagrosas bendiciones..
+          </p>
+          <a class="btn btn-outline-dark" href="https://www.eltribuno.com/jujuy/ttag/peregrinacion-a-punta-corral">Conoce más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Seccion Noticias -->
+
+  <!-- Quienes Somos -->
+  <section class="contenedor2">
+    <h3 class="titulo2">Conoce a nuestros Guías</h3>
+    <div class="cards">
+        <div class="card">
+          <a href="#">
+            <img class="zoom" alt="Maria Mamani" src="{% static '/img/guia1.jpg'%}" />
+          </a>
+          <div class="contenido-texto-card">
+            {% filter upper %}<h5>Maria Mamani</h5>{% endfilter %}
+            <p>Especialista en circuitos convencionales</p>
+          </div>
+        </div>
+        <div class="card">
+          <a href="#">
+            <img class="zoom" alt="Carmen Humana" src="{% static '/img/guia2.jpg'%}" />
+          </a>
+          <div class="contenido-texto-card">
+            {% filter upper %}<h5>Carmen Humana</h5>{% endfilter %}
+            <p>Especialista en turismo activo y guía personal</p>
+          </div>
+        </div>
+        <div class="card">
+          <a href="#">
+            <img class="zoom" alt="Sergio Aucapiña" src="{% static '/img/guia3.png'%}" />
+          </a>
+          <div class="contenido-texto-card">
+            {% filter upper %}<h5>Sergio Aucapiña</h5>{% endfilter %}
+            <p>Especialista en region Puna-Quebrada</p>
+          </div>
+        </div>
+    </div>
+  </section> 
+ 
+  <!-- Formulario de consulta -->
+  <section class="section-form">
+    <div class="form-contact">
+        <div class="header_form">
+          <span class="header_form_span">
+            <p> FORMULARIO DE CONSULTA</p>
+            {% comment %} <i class="fa fa-paper-plane" aria-hidden="true"></i> {% endcomment %}
+          </span>
+        </div>
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{message}}
+        </div>
+        {% endfor %}
+        <form class="contact" novalidate id="contact-form" name="contact-form" action="{% url 'inicio' %}" method="POST">
+          {% csrf_token %}
+          <div class="form-row">
+            {% for campo in consulta_form %}
+              <!--Grid column-->
+              <div class="form-group col-md-12">
+                <label for="name" class="">{{ campo.label }}</label>
+                {{campo}}
+                <div>{{campo.errors}}</div>
+              </div>
+            {% endfor %}
+          </div>
+          <input type="submit" value="Enviar">
+        </form>
+    </div>
+  </section>
+
+
+
+  {% comment %}
+   Optional JavaScript 
+   jQuery first, then Popper.js, then Bootstrap JS 
+  {% endcomment %}
+ 
+{% endblock contenido %}

@@ -1,0 +1,330 @@
+/* Header */
+
+  .text1{
+    color: #bc04ff;
+
+  }
+
+  .btn-registro{
+    font-size:25px;
+    width: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .btn-registro:hover {
+    background-color: #bc04ff;
+    color: white;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+  }
+  
+  #text_frase {
+    font-size: 60px;
+    font-family: Curlz MT;
+    color:black;
+    }
+  
+  #header img {
+    width: 80px;
+  }
+
+  
+  /*     Modal    */
+  /* .fondo_modal{
+    background-image: url("/static/img/wipala0.png");
+    background-repeat:no-repeat;
+    height:60px;
+    width:auto;
+  } */
+
+  
+  /*     Main    */
+
+  /* Seccion Carrusel de imagenes */
+  #section_main .carousel-inner img {
+    max-height: 80vh;
+    object-fit: cover;
+    filter: grayscale(30%);
+  }
+  
+  #carousel {
+    position: relative;
+  }
+  
+  #carousel .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  
+  #carousel .overlay .container,
+  #carousel .overlay .row {
+    height: 100%;
+  }
+  
+  /* Seccion Galeria de fotos */
+  .contenedor {
+    padding: 20px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .titulo {
+    color: #bc04ff;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family:monospace;
+  }
+  
+  
+  .portafolio{
+    background: #f2f2f2;
+  }
+  
+  .galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  
+  .imagen-port{
+    width: 25%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+  }
+  
+  .imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273,91%,27%, 0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .hover-galeria img{
+    width: 50px;
+  }
+  
+  .hover-galeria p{
+    color: #fff;
+    text-align: center;
+  }
+  
+  .imagen-port:hover .hover-galeria{
+    transform: scale(1);
+  }
+  
+  /*    Seccion Noticias    */
+  #news {
+    background-color: #cad1d2;
+    color: rgb(0, 0, 0);
+    text-align: center
+  }
+  
+  #news img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  
+  /* Seccion Quienes somos */
+  .contenedor2 {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .titulo2 {
+    color: #642a73;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+  } 
+  .cards{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .cards .card{
+    background: hsla(273,91%,27%, 0.7);
+    display: flex;
+    width: 30%;
+    height: 250px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+  }
+  
+  .cards .card img{
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: block;
+  }
+  
+  .zoom {
+    transition: transform .2s; 
+  }
+  
+  .zoom:hover {
+    transform: scale(1.5); 
+  }
+  
+  .cards .card > .contenido-texto-card{
+    width: 80%;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .cards .card > .contenido-texto-card p{
+    font-weight: 300;
+    padding-top: 5px;
+  }
+  
+  /* Pie de Pagina - Footer */
+  .pie-pagina{
+    width: 100%;
+    background-color: #0a141d;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+  .pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+    align-items: center;
+    text-align: center;
+  }
+  .pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .pie-pagina .grupo-1 .box figure img{
+    padding-left: 80px;
+    width: 250px;
+  }
+  
+  .pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+  }
+  .pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: rgb(53, 114, 211);
+    text-align: center;
+    transition: all 300ms ease;
+  }
+  .pie-pagina .grupo-1 .red-social a:hover{
+    color:aquamarine;
+  }
+  .pie-pagina .grupo-2{
+    background-color: rgb(53, 114, 211);
+    padding: 10px 10px;
+    text-align: center;
+    color: #fff;
+  }
+  .pie-pagina .grupo-2 small{
+    font-size: 20px;
+  }
+  
+  @media screen and (max-width:1000px){
+  
+        /* Footer */
+    .pie-pagina .grupo-1{
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+        /* Galeria */
+  
+        .imagen-port{
+          width: 44%;
+      }
+  
+      /* Quienes somos */
+  
+      .cards{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+  
+      .cards .card{
+          width: 90%;
+          margin-top: 20px;
+          margin-bottom: 20px;
+      }
+
+  }
+  
+  @media screen and (max-width:500px){
+  
+    /* Galeria */
+  
+    .imagen-port{
+        width: 95%;
+    }
+  
+    /* Quienes somos */
+  
+    .cards .card{
+        width: 30%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+  
+    .cards .card img{
+      width: 30%;
+      height: 40%;
+    }
+  
+  }
