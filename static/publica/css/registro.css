@@ -1,4 +1,4 @@
-/********* INICIO Estilos pagina Formulario (contacto.html) ********/
+/********* INICIO Estilos pagina Registro (registro.html) ********/
 
 .texto1{
     font-size: 30px;
@@ -104,6 +104,9 @@
     color: white;
   }
 
+  
+/* Section Responsive */
+
 @media only screen and (min-width: 600px) 
 {
     .section{
@@ -140,7 +143,7 @@
     }
 }
 
-/********* FIN Estilos pagina Formulario (contacto.html) ********/
+/********* FIN Estilos pagina Registro (registro.html) ********/
 
 
 /********* INICIO Estilos pagina Politica (politica.html) ********/

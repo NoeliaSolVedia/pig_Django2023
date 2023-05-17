@@ -210,6 +210,90 @@
     padding-top: 5px;
   }
   
+  /* Seccion Formulario de Consulta */
+  .section-form{
+    box-sizing: border-box;
+    background-image: url("/static/img/fondo_aguayo.png");
+    /* filter: brightness(200%);  */
+    background-repeat:no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-contact {
+    margin: 10px;
+    background: #FFF;
+    width: 500px;
+    -webkit-box-shadow: 0px 0px 30px 9px rgba(184,255,156,1);
+    -moz-box-shadow: 0px 0px 30px 9px rgba(184,255,156,1);
+    box-shadow: 0px 0px 30px 9px rgba(184,255,156,1);
+
+  }
+  
+  .header_form {
+    width: 100%;
+    background: #dc3c4c;
+    overflow: hidden;
+    color: white;
+  }
+  
+  .header_form_span {
+    padding-top: 5px;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    /* padding: 2.5rem; */
+  }
+  
+  .contact {
+    padding: .8rem;
+    /* overflow: hidden; */
+    color: gray;
+  }
+  
+  .contact label, .contact input, .contact textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;   
+  }
+  
+  .contact label {
+    font-weight: 700;
+  }
+  
+  .contact input:not([type='submit']), .contact textarea {
+    border: none;
+    border-bottom: 2px solid #dc3c4c;
+    margin-bottom: 10px;
+    font-size: 20px;
+    outline: none;
+    color: gray;
+  }
+  
+  .contact textarea {
+    min-height: 100px;
+  }
+
+  .contact textarea:focus, input:focus, input[type]:focus {
+    border-color: #dc3c4c;
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(255,144,0,0.6);
+    outline: 0 none;
+  }
+  
+  input[type='submit'] {
+    padding: 10px;
+    background: #4d7d3c;
+    border: none;
+    color: white;
+    font-size: 20px;
+    /* pointer-events: none; */
+    cursor: pointer;
+  }
+
+
   /* Pie de Pagina - Footer */
   .pie-pagina{
     width: 100%;
@@ -270,6 +354,8 @@
   .pie-pagina .grupo-2 small{
     font-size: 20px;
   }
+
+/* Section Responsive */
   
   @media screen and (max-width:1000px){
   

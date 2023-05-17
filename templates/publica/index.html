@@ -3,10 +3,9 @@
 {% block titulo %}Inicio IRPAÑA{% endblock titulo %}
 
 {% block contenido %}
-  {% comment %} <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> {% endcomment %}
   <!-- Main -->
   {% load static %}
-  <link rel="stylesheet" href="{% static '/publica/css/index.css'%}?v={% now 'U' %}">  
+  {% comment %} <link rel="stylesheet" href="{% static '/publica/css/index.css'%}?v={% now 'U' %}">   {% endcomment %}
 
   <section id="section_main">
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
@@ -157,7 +156,6 @@
         <div class="header_form">
           <span class="header_form_span">
             <p> FORMULARIO DE CONSULTA</p>
-            {% comment %} <i class="fa fa-paper-plane" aria-hidden="true"></i> {% endcomment %}
           </span>
         </div>
         {% for message in messages %}
@@ -181,8 +179,6 @@
         </form>
     </div>
   </section>
-
-
 
   {% comment %}
    Optional JavaScript 
