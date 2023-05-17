@@ -9,14 +9,14 @@
 	{% if lista_eventos|length > 0 %}
 	  {% for evento in lista_eventos %}
 	  <div class="timeline-items">
-		<div class="timeline-item">
+		<div class="timeline-item {% cycle 'timeline-item_impar' 'timeline-item_par' %}">
 		  <div class="timeline-dot"></div>
 		  <div class="timeline-date">{{evento.fecha_evento}}</div>
-		  <div class="timeline-content" style="color: {% cycle 'blue' 'red' %}">
-			<h3>{{evento.nombre}}</h3>
+		  <div class="timeline-content ">
+			<h3 style="color: {% cycle 'SteelBlue' 'Crimson' %}">{{evento.nombre}}</h3>
 			<p class="card-text">{{evento.descripcion}}</p>
 			<p class="card-text">{{evento.direccion}}</p>
-			<img width="50%" src={{evento.imagen_evento}} alt="{{curso.nombre}}">
+			<img width="75%" src={{evento.imagen_evento}} alt="{{curso.nombre}}">
 		  </div>
 		</div>
 	   </div>		
