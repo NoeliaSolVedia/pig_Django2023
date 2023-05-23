@@ -1,0 +1,21 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Editar Guia{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">Guias - Edición</h1>
+</div>
+
+<div class="card">
+    <div class="card-header">Edicion de Guia</div>
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'administracion/guias/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

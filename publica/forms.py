@@ -44,7 +44,13 @@ class ConsultaForm(forms.Form):
 # Formulario de registro:
 
 class RegistroForm(forms.Form):
-    ATRACTIVOS = [("naturales", "Naturales"),("culturales", "Culturales"),("religiosos", "Religiosos")]
+    ATRACTIVOS = [
+        ("naturales", "Naturales"),
+        ("culturales", "Culturales"),
+        ("religiosos", "Religiosos"),
+        ("deportivos", "Deportivos"),
+        ("todos", "Todos")
+    ]
 
     nombre = forms.CharField(
             label='NOMBRE:',
@@ -65,15 +71,27 @@ class RegistroForm(forms.Form):
     )
     nacimiento = forms.DateField(
         label='FECHA DE NACIMIENTO:',
-        widget=forms.TextInput()
+        widget=forms.DateInput(attrs={'type':'date'})
+    )
+    pais = forms.CharField(
+            label='PAÍS:',
+            max_length=50,
+            validators=(solo_caracteres,),
+            widget=forms.TextInput(attrs={'placeholder':''})
+    )
+    ciudad = forms.CharField(
+            label='CIUDAD:',
+            max_length=50,
+            validators=(solo_caracteres,),
+            widget=forms.TextInput(attrs={'placeholder':''})
     )
     atractivos = forms.MultipleChoiceField(
-        label='Indique sus preferencias:',
+        label='Indique los atractivos en que esta interesad@:',
         required=False,
         widget=forms.CheckboxSelectMultiple(),
         choices=ATRACTIVOS
     )
-    condiciones = forms.BooleanField(
+    aceptar = forms.BooleanField(
             label='He leído y acepto los términos y condiciones de uso.',
             error_messages={'required': 'Debes leer y aceptar nuestro términos y condiciones de uso. '},
             widget=forms.CheckboxInput(attrs={'class':'form-control','value':1})

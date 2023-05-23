@@ -1,0 +1,75 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Guias{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">Guias</h1>
+</div>
+
+<div class="card">
+    <div class="card-header borde">
+        <h3>Filtros</h3>
+    </div>
+    <div class="card-body borde">
+        <form action="">
+            <div class="row">
+                <div class="col-3">
+                    <div class="md-form mb-0">
+                        <label for="name" class="">Nombre</label>  
+                        <input type="text" 
+                              id="nombre" 
+                              name="nombre"
+                              placeholder="Ingrese el nombre" 
+                              class="form-control">
+                    </div>
+                </div>
+                <div class="col-3 ">
+                    <button class="btn btn-primary mt-4">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div class="card borde">
+    <div class="card-body borde">
+        <a name="" id="" class="btn btn-success" href="{% url 'guias_nuevo' %}" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        <!-- bs5-table-defaul -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Especialidad</th>
+                    <th>Foto</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% load static %}
+                {% for guia in guias %}
+                    <tr>
+                        <td>{{guia.id}}</td>
+                        <td>{{guia.nombre}}</td>
+                        <td>{{guia.apellido}}</td>
+                        <td>{{guia.email}}</td>
+                        <td>{{guia.especialidad}}</td>
+                        <td><img src={{guia.foto.url}} alt="" width="120" height="100"></td>
+                        <td>
+                            <a href="{% url 'guias_editar' guia.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'guias_eliminar' guia.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+    

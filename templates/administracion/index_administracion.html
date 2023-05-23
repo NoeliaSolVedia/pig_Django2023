@@ -1,7 +1,16 @@
 {% extends './base_administracion.html' %}
 
-{% block titulo %}Inicio ADMIN{% endblock%}
+{% block titulo %}INICIO ADMIN{% endblock%}
 
 {% block contenido %}
 
+<div class="fondo_index"> 
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+ {% comment %}     <h1>TEST</h1>
+    <p>
+        <h3>Test Variable desde View</h3>
+        <h5>{{variable}}</h5>
+    </p> {% endcomment %}
+</div>
 {% endblock %}

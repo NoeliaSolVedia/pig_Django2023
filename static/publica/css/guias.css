@@ -1,16 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-*{
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
-}
-body{
-	font-family: 'Poppins', sans-serif;
-}
 .timeline-section{
-	background-image: url("/static/img/salinas_noche.png");
-    /* filter: brightness(200%);  */
+	background-image: url("/static/img/cuesta_lipan_guia.jpg");
     background-repeat:no-repeat;
     background-size: cover;
 	min-height: 100vh;
@@ -39,11 +29,11 @@ body{
 .timeline-item:last-child{
 	margin-bottom: 0;
 }
-.timeline-item_impar{
+.impar{
     padding-right: calc(50% + 30px);
 	text-align: right;
 }
-.timeline-item_par{
+.par{
     padding-left: calc(50% + 30px);
 	text-align: left;
 }
@@ -56,29 +46,36 @@ body{
 	border-radius: 50%;
 	top:10px;
 }
-.timeline-date{
+.timeline-nombre{
 	font-size: 28px;
-	color: gold;
 	margin:6px 0 15px;
 	font-family:'Times New Roman';
 }
-.timeline-content{
-    background-color: rgb(205, 231, 241);
-	padding: 30px;
+.timeline-info{
+	padding: 20px; 
 	border-radius: 5px;
+	background-color: rgba(0,0,0,0.5);
+	/* background-color : transparent; */
 }
-.timeline-content h3{
+h3{
     font-size: 25px;
 	margin:0 0 10px;
 	text-transform: capitalize;
 	font-weight: 700;
+	text-shadow:white 0 -3px;
 }
-.timeline-content p{
-    color: black;
+p{
+    color: white;
 	font-size: 16px;
-	font-weight: 300;
+	font-weight: 700;
 	line-height: 22px;
-	
+}
+.foto img{
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 50%;
 }
 
 /* responsive */

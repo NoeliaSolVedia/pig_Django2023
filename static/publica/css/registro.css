@@ -14,7 +14,6 @@
 .fondo_registro {
     background-color: #eaddee;
 }
-
 .estilo_form{
     background-image: url("/static/img/wipala_form.png");
     /* filter: brightness(200%);  */
@@ -48,7 +47,6 @@
     flex-direction: column;
 }
 
-
 .estilo_form input {
     width: 100%;
     font-size: 20px;
@@ -57,13 +55,11 @@
     outline: none;
     /* border-bottom: 2px solid black; */
     border-radius: 20px;
-    background-color: rgba(253, 253, 253, 0.15);
-    box-shadow: inset -3px -3px rgba(0,0,0, 0.5);
+    background-color: rgba(154, 108, 108, 0.15);
+    box-shadow: inset -3px -3px rgba(0,0,0, 0.6);
     font-weight: 700;
     color:black;
-    /* margin-bottom: 10px;  */
-    /* font-size: 20px; */
-    /* font-size: 1rem; */
+    margin: 0;
 }
   
 .estilo_form label {
@@ -76,8 +72,8 @@
     display: inline-block;
     width: 15px;
     height: 15px;
-    margin-right: .5rem;
     background-size: cover;
+    text-align: center;
 } 
   
   /* .estilo_form textarea {
@@ -85,8 +81,10 @@
   } */
 
   .estilo_form textarea:focus, input:focus, input[type]:focus {
-    border-color: white;
-    outline: white;
+    /* border-color: white; */
+    /* outline: white; */
+    background-color: white;
+    box-shadow: inset -3px -3px rgba(0,0,0, 0.6);
   }
   
   input[type='submit'] {
@@ -96,7 +94,7 @@
     border:black;
     color: black;
     font-size: 20px;
-    /* pointer-events: none; */
+    margin: 0;
     cursor: pointer;
   }
   input[type='submit']:focus {

@@ -23,7 +23,7 @@
       <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div id="text_frase" class="navbar-brand">
-            <img src="{% static '/img/LOGO_irpania.png'%}" alt="IRPAÑA logo" width="120" height="100"> Dejate guiar
+            <img src="{% static '/img/LOGO_irpania.png'%}" alt="IRPAÑA logo" width="" height="100"> Dejate guiar
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,13 +42,13 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'eventos' %}">AGENDA</a>
+                <a class="nav-link" href="{% url 'agenda_model' %}">AGENDA</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'noticias' %}">NOTICIAS</a>
+                <a class="nav-link" href="{% url 'guias_model' %}">NUESTROS GUÍAS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text1" href="{% url 'noticias' %}">
+                <a class="nav-link text1" href="{% url 'registro' %}">
                   <i class="fa-sharp fa-solid fa-circle-user fa-xl" style="color: #bb40dd;"></i>&nbsp;INICIO DE SESIÓN
                 </a>
               </li>

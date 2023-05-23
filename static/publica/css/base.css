@@ -138,20 +138,20 @@
     transform: scale(1);
   }
   
-  /*    Seccion Noticias    */
-  #news {
+  /*    Seccion Eventos    */
+  #evento {
     background-color: #cad1d2;
     color: rgb(0, 0, 0);
     text-align: center
   }
   
-  #news img {
+  #evento img {
     max-width: 100%;
     max-height: 100%;
   }
   
   
-  /* Seccion Quienes somos */
+  /* Seccion Nuestros guias */
   .contenedor2 {
     padding: 60px 0;
     width: 90%;
@@ -161,10 +161,12 @@
   }
   
   .titulo2 {
-    color: #642a73;
-    font-size: 30px;
+    color: #753385;
+    font-size: 35px;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+    font-family:monospace;
+    /* margin-bottom: 60px; */
   } 
   .cards{
     display: flex;

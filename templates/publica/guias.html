@@ -1,0 +1,27 @@
+{% extends './base.html' %}
+
+{% block titulo %}Nuestros Guias{% endblock titulo %}
+
+{% block contenido %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/publica/css/guias.css'%}?v={% now 'U' %}">  
+  <section class="timeline-section">
+	{% if guias|length > 0 %}	
+	  {% for guia in guias %}
+	  <div class="timeline-items">
+		<div class="timeline-item {% cycle 'impar' 'par' %}">
+		  <div class="timeline-dot"></div>
+		  <div class="timeline-nombre">
+			<h3 style="color: {% cycle 'red' 'blue' %}">{{guia.nombre}}&nbsp;{{guia.apellido}}</h3>
+		  </div>
+		  <div class="foto"><img src={{guia.foto.url}} alt="{{guia.nombre}}"></div>
+		  <div class="timeline-info">
+			<p class="card-text">{{guia.especialidad}}</p>
+			<p class="card-text">{{guia.email}}</p>
+		  </div>
+		</div>
+	   </div>		
+	  {% endfor %}
+    {% endif %}
+  </section> 
+{% endblock contenido %}

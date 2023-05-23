@@ -5,8 +5,7 @@
 {% block contenido %}
   <!-- Main -->
   {% load static %}
-  {% comment %} <link rel="stylesheet" href="{% static '/publica/css/index.css'%}?v={% now 'U' %}">   {% endcomment %}
-
+  
   <section id="section_main">
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
       <div class="carousel-inner">
@@ -98,52 +97,46 @@
     </div>
   </section>
 
-  <!-- Seccion Noticias-->
-  <section id="news">
+  <!-- Seccion Evento destacado-->
+  <section id="evento">
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-lg-6 pl-0 pr-0">
           <img src="{% static '/img/punta_corral1.png'%}" alt="Punta Corral" />
         </div>
         <div class="col-12 col-lg-6 pt-4 pb-4">
-          <h2>Peregrinación al Santuario de Punta Corral - 2023</h2>
-          <p> Movidos por un profundo sentimiento hacia la mamita del Cerro, cientos de peregrinos y las bandas de sikuris realizaron el ascenso masivo hacia el santuario de la Virgen de Punta Corral para poder verla y tocar su manto confiando en sus milagrosas bendiciones..
-          </p>
-          <a class="btn btn-outline-dark" href="https://www.eltribuno.com/jujuy/ttag/peregrinacion-a-punta-corral">Conoce más</a>
+          <h4>Peregrinación al Santuario de Punta Corral</h4>
+          <p>Movidos por un profundo sentimiento hacia la mamita del Cerro, cientos de peregrinos y bandas de sikuris realizan cada año el ascenso masivo hacia el santuario de la Virgen de Punta Corral para poder verla y tocar su manto confiando en sus milagrosas bendiciones.</p>
+          <p>Conoce cuando se lleva a cabo esta peregrinación y demás actividades y celebraciones autóctonas de nuestra provincia. </p>
+          <a class="btn btn-outline-dark" href="#">Ver Agenda</a>
         </div>
       </div>
     </div>
   </section>
-  <!-- /Seccion Noticias -->
+  <!-- /Seccion Evento destacado -->
 
-  <!-- Quienes Somos -->
+  <!-- Nuestros guias -->
   <section class="contenedor2">
-    <h3 class="titulo2">Conoce a nuestros Guías</h3>
+    <h3 class="titulo2">Conocé algunos de nuestros Guías</h3>
     <div class="cards">
         <div class="card">
-          <a href="#">
-            <img class="zoom" alt="Maria Mamani" src="{% static '/img/guia1.jpg'%}" />
-          </a>
+          <img class="zoom" alt="Maria Mamani" src="{% static '/img/guia1.jpg'%}" />
           <div class="contenido-texto-card">
             {% filter upper %}<h5>Maria Mamani</h5>{% endfilter %}
             <p>Especialista en circuitos convencionales</p>
           </div>
         </div>
         <div class="card">
-          <a href="#">
-            <img class="zoom" alt="Carmen Humana" src="{% static '/img/guia2.jpg'%}" />
-          </a>
+          <img class="zoom" alt="Carmen Humana" src="{% static '/img/guia2.jpg'%}" />
           <div class="contenido-texto-card">
             {% filter upper %}<h5>Carmen Humana</h5>{% endfilter %}
             <p>Especialista en turismo activo y guía personal</p>
           </div>
         </div>
         <div class="card">
-          <a href="#">
-            <img class="zoom" alt="Sergio Aucapiña" src="{% static '/img/guia3.png'%}" />
-          </a>
+          <img class="zoom" alt="Sergio Aucapiña" src="{% static '/img/guia3.jpg'%}" />
           <div class="contenido-texto-card">
-            {% filter upper %}<h5>Sergio Aucapiña</h5>{% endfilter %}
+            {% filter upper %}<h5>Raúl Aucapiña</h5>{% endfilter %}
             <p>Especialista en region Puna-Quebrada</p>
           </div>
         </div>
