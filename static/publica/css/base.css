@@ -1,8 +1,16 @@
-/* Header */
+ /* Header */
+  .div_nav{
+    padding:  0px;
+    margin: 0px;
+  } 
 
   .text1{
     color: #bc04ff;
+  }
 
+  .text_cerrar{
+    border: 1px solid #bc04ff;
+    color: #bc04ff;
   }
 
   .btn-registro{
@@ -20,24 +28,27 @@
   }
   
   #text_frase {
-    font-size: 60px;
+    font-size: 40px;
     font-family: Curlz MT;
     color:black;
+    padding: 0;
     }
+
+  .text_login {
+    font-family: Arial, Helvetica; 
+    color:rgb(56, 67, 196);
+    font-weight: 700;
+    padding-left: 0;
+    padding-right: 0px;
+  }
   
-  #header img {
-    width: 80px;
+  nav img {
+    width: 100px;
   }
 
-  
-  /*     Modal    */
-  /* .fondo_modal{
-    background-image: url("/static/img/wipala0.png");
-    background-repeat:no-repeat;
-    height:60px;
-    width:auto;
-  } */
-
+  nav{
+    flex-wrap: nowrap !important;
+  }
   
   /*     Main    */
 
@@ -98,10 +109,11 @@
   .imagen-port{
     width: 25%;
     margin-bottom: 10px;
+    padding: 5px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .75);
   }
   
   .imagen-port > img{
@@ -132,6 +144,14 @@
   .hover-galeria p{
     color: #fff;
     text-align: center;
+  }
+
+  .hover-galeria a{
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
   }
   
   .imagen-port:hover .hover-galeria{
@@ -230,7 +250,7 @@
     width: 500px;
     -webkit-box-shadow: 0px 0px 30px 9px rgba(184,255,156,1);
     -moz-box-shadow: 0px 0px 30px 9px rgba(184,255,156,1);
-    box-shadow: 0px 0px 30px 9px rgba(184,255,156,1);
+    box-shadow: 0px 0px 30px 9px rgb(12, 36, 2);
 
   }
   
@@ -246,12 +266,10 @@
     font-size: 30px;
     display: block;
     text-align: center;
-    /* padding: 2.5rem; */
   }
   
   .contact {
     padding: .8rem;
-    /* overflow: hidden; */
     color: gray;
   }
   
@@ -293,7 +311,6 @@
     /* pointer-events: none; */
     cursor: pointer;
   }
-
 
   /* Pie de Pagina - Footer */
   .pie-pagina{
@@ -415,3 +432,4 @@
     }
   
   }
+

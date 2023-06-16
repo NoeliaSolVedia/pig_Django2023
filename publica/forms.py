@@ -1,99 +1,21 @@
 from django import forms
-from django.forms import ValidationError
-from django.core import validators
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-def solo_caracteres(value):
-    if any(char.isdigit() for char in value):
-        raise ValidationError('El nombre no puede contener números: %(valor)s',
-                            code='Invalid',
-                            params={'valor':value})
 
-# Formulario de consulta:
-
-class ConsultaForm(forms.Form):
-    nombre = forms.CharField(
-            label='Nombre', 
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'placeholder':''})
+class RegistrarUsuarioForm(UserCreationForm):
+    username = forms.CharField(
+            label='Usuario', 
+            widget=forms.TextInput(attrs={'placeholder':'Ingrese nombre de Usuario'})
         )
-    apellido = forms.CharField(
-            label='Apellido', 
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'placeholder':''})
+    password1 = forms.CharField(
+            label='Password1', 
+            widget=forms.TextInput(attrs={'placeholder':'Ingrese su contraseña'})
         )
-    email = forms.EmailField(
-            label='Email',
-            max_length=100,
-            widget=forms.TextInput(attrs={'type':'email'})
+    password2 = forms.CharField(
+            label='Password2', 
+            widget=forms.TextInput(attrs={'placeholder':'Confirme la contraseña'})
         )
-    mensaje = forms.CharField(
-        label='Mensaje',
-        max_length=500,
-        error_messages={'required': 'Por favor ingresa tu consulta'},
-        widget=forms.Textarea(attrs={'rows': 5,})
-    )
-
-    def clean_mensaje(self):
-        data = self.cleaned_data['mensaje']
-        if len(data) < 10:
-            raise ValidationError("Debes especificar mejor la consulta que nos envias")
-        return data
-
-# Formulario de registro:
-
-class RegistroForm(forms.Form):
-    ATRACTIVOS = [
-        ("naturales", "Naturales"),
-        ("culturales", "Culturales"),
-        ("religiosos", "Religiosos"),
-        ("deportivos", "Deportivos"),
-        ("todos", "Todos")
-    ]
-
-    nombre = forms.CharField(
-            label='NOMBRE:',
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'placeholder':''})
-    )
-    apellido = forms.CharField(
-            label='APELLIDO:',
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'placeholder':''})
-    )
-    email = forms.EmailField(
-            label='EMAIL:',
-            max_length=100,
-            widget=forms.TextInput(attrs={'type':'email'})
-    )
-    nacimiento = forms.DateField(
-        label='FECHA DE NACIMIENTO:',
-        widget=forms.DateInput(attrs={'type':'date'})
-    )
-    pais = forms.CharField(
-            label='PAÍS:',
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'placeholder':''})
-    )
-    ciudad = forms.CharField(
-            label='CIUDAD:',
-            max_length=50,
-            validators=(solo_caracteres,),
-            widget=forms.TextInput(attrs={'placeholder':''})
-    )
-    atractivos = forms.MultipleChoiceField(
-        label='Indique los atractivos en que esta interesad@:',
-        required=False,
-        widget=forms.CheckboxSelectMultiple(),
-        choices=ATRACTIVOS
-    )
-    aceptar = forms.BooleanField(
-            label='He leído y acepto los términos y condiciones de uso.',
-            error_messages={'required': 'Debes leer y aceptar nuestro términos y condiciones de uso. '},
-            widget=forms.CheckboxInput(attrs={'class':'form-control','value':1})
-    )
-  
+    class Meta:
+        model = User
+        fields = ['username', 'password1', 'password2']

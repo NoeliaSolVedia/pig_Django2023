@@ -1,6 +1,12 @@
 asgiref==3.6.0
 Django==3.2.18
+django-admin-interface==0.26.0
+django-colorfield==0.8.0
 django-environ==0.10.0
+django-extensions==3.2.1
+Pillow==9.5.0
 psycopg2==2.9.6
+python-slugify==8.0.1
 pytz==2023.2
 sqlparse==0.4.3
+text-unidecode==1.3

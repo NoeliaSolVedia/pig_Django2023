@@ -1,4 +1,4 @@
-/********* INICIO Estilos pagina Registro (registro.html) ********/
+/********* INICIO Estilos pagina Registro (formulario.html) ********/
 
 .texto1{
     font-size: 30px;
@@ -17,7 +17,7 @@
 .estilo_form{
     background-image: url("/static/img/wipala_form.png");
     /* filter: brightness(200%);  */
-    background-repeat:no-repeat;
+  /*  background-repeat:no-repeat;*/
     background-size: cover;
     border-radius: 25px;
     align-items: center;
@@ -47,7 +47,7 @@
     flex-direction: column;
 }
 
-.estilo_form input {
+.estilo_form input, select {
     width: 100%;
     font-size: 20px;
     padding-left: 10px;
@@ -102,7 +102,7 @@
     color: white;
   }
 
-  
+
 /* Section Responsive */
 
 @media only screen and (min-width: 600px) 

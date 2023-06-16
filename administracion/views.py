@@ -1,13 +1,15 @@
-from administracion.models import Evento, Guia
-from administracion.forms import EventoForm, GuiaForm
+from administracion.models import Evento, Guia, Atractivo
+from administracion.forms import EventoForm, GuiaForm, AtractivoForm
 
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index_administracion(request):
     variable = 'test variable'
     return render(request,'administracion/index_administracion.html',
@@ -15,6 +17,7 @@ def index_administracion(request):
 
 """   CRUD Eventos   """
 
+@login_required
 def eventos_index(request):
     #queryset
     eventos = Evento.objects.all()
@@ -53,9 +56,48 @@ def eventos_eliminar(request,id_evento):
     evento.delete()
     return redirect('eventos_index')
 
+"""   CRUD Atractivos   """
+@login_required
+def atractivos_index(request):
+    #queryset
+    atractivos = Atractivo.objects.all()
+    return render(request,'administracion/atractivos/index.html',{'atractivos':atractivos})
+
+def atractivos_nuevo(request):
+    if(request.method=='POST'):
+        formulario = AtractivoForm(request.POST, request.FILES)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('atractivos_index')
+    else:
+        formulario = AtractivoForm()
+    return render(request,'administracion/atractivos/nuevo.html',{'form':formulario})
+
+def atractivos_editar(request,id_atractivo):
+    try:
+        atractivo = Atractivo.objects.get(pk=id_atractivo)
+    except Atractivo.DoesNotExist:
+        return render(request,'administracion/404_admin.html')
+    if(request.method=='POST'):
+        formulario = AtractivoForm(request.POST,request.FILES, instance=atractivo)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('atractivos_index')
+    else:
+        formulario = AtractivoForm(instance=atractivo)
+    return render(request,'administracion/atractivos/editar.html',{'form':formulario})
+
+def atractivos_eliminar(request,id_atractivo):
+    try:
+        atractivo = Atractivo.objects.get(pk=id_atractivo)
+    except Atractivo.DoesNotExist:
+        return render(request,'administracion/404_admin.html')
+    atractivo.delete()
+    return redirect('atractivos_index')
+
 
 """     CRUD GUIAS     """
-
+@login_required
 def guias_index(request):
     #queryset
     guias = Guia.objects.all()

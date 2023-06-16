@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="imagen-port">
-              <img src="{% static '/img/casabindo.jpg'%}" alt="Casabindo">
+              <img src="{% static '/img/toreo_vincha.jpg'%}" alt="Casabindo">
               <div class="hover-galeria">
                   <p>Casabindo - Cochinoca</p>
               </div>
@@ -108,7 +108,7 @@
           <h4>Peregrinación al Santuario de Punta Corral</h4>
           <p>Movidos por un profundo sentimiento hacia la mamita del Cerro, cientos de peregrinos y bandas de sikuris realizan cada año el ascenso masivo hacia el santuario de la Virgen de Punta Corral para poder verla y tocar su manto confiando en sus milagrosas bendiciones.</p>
           <p>Conoce cuando se lleva a cabo esta peregrinación y demás actividades y celebraciones autóctonas de nuestra provincia. </p>
-          <a class="btn btn-outline-dark" href="#">Ver Agenda</a>
+          <a class="btn btn-outline-dark" href="{% url 'agenda_model' %}">Ver Agenda</a>
         </div>
       </div>
     </div>
@@ -172,10 +172,5 @@
         </form>
     </div>
   </section>
-
-  {% comment %}
-   Optional JavaScript 
-   jQuery first, then Popper.js, then Bootstrap JS 
-  {% endcomment %}
  
 {% endblock contenido %}

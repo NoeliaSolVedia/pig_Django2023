@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3682b977b2.js" crossorigin="anonymous"></script>
-
     {% load static %}
     <link rel="stylesheet" href="{% static '/publica/css/base.css'%}?v={% now 'U' %}">    
 
@@ -20,8 +19,8 @@
   <body>
     <!-- Header -->
     <header>
-      <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container div_nav">
           <div id="text_frase" class="navbar-brand">
             <img src="{% static '/img/LOGO_irpania.png'%}" alt="IRPAÑA logo" width="" height="100"> Dejate guiar
           </div>
@@ -33,25 +32,38 @@
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'inicio' %}">BIENVENIDOS</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">ATRACTIVOS</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="{% url 'atractivos' %}">Naturales</a>
-                  <a class="dropdown-item" href="{% url 'atractivos' %}">Culturales</a>
-                  <a class="dropdown-item" href="{% url 'atractivos' %}">Religiosos</a>
-                </div>
+              <li class="nav-item">
+                <a class="nav-link"  href="{% url 'atractivos_model' %}">ATRACTIVOS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'agenda_model' %}">AGENDA</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'guias_model' %}">NUESTROS GUÍAS</a>
+                <a class="nav-link" href="{% url 'guias_model' %}">GUÍAS</a>
+              </li>
+             {% if user.is_authenticated %}
+              {% if perms.administracion %}
+               <li class="nav-link">
+                 <a href="{% url 'inicio_administracion' %}">ADMIN</a>
+               </li>
+              {% else %} 
+               <li class="nav-link">
+                 <a href="{% url 'info' %}">INFO</a>
+               </li>
+              {% endif %} 
+              <li class="nav-item text_login">
+                <a class="nav-link text_login">BIENVENID@ {{ user.username }} &nbsp;</a>  
               </li>
               <li class="nav-item">
-                <a class="nav-link text1" href="{% url 'registro' %}">
-                  <i class="fa-sharp fa-solid fa-circle-user fa-xl" style="color: #bb40dd;"></i>&nbsp;INICIO DE SESIÓN
-                </a>
+                <a type="button" href="{% url 'logout' %}" class="btn btn-outline-primary me-2 text_cerrar">Cerrar Sesión</a>
               </li>
+             {% else %}
+              <li class="nav-item">
+               <a class="nav-link text1" href="{% url 'iniciar_sesion' %}">
+                 <i class="fa-sharp fa-solid fa-circle-user fa-xl" style="color: #bb40dd;"></i>&nbsp;INICIAR SESIÓN
+               </a>
+              </li>
+             {% endif %}
             </ul>
           </div>
         </div>

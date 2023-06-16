@@ -3,9 +3,59 @@
 {% block titulo %}Atractivos{% endblock%}
 
 {% block contenido %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/publica/css/atractivos.css'%}?v={% now 'U' %}"> 
+  <div class="contenedor">
+    <section class="buscar">
+      <form action="">
+        <input type="text" class="barra-busqueda" id="barra-busqueda" placeholder="Buscar">
+      </form>
+      <div class="categorias" id="categorias">
+        <a href="#" class="activo">Todos</a>
+        <a href="#">Naturales</a>
+        <a href="#">Culturales</a>
+        <a href="#">Religiosos</a>
+        <a href="#">Deportivos</a>
+      </div>
+    </section>
 
+    <section class="portafolio">
+      {% if atractivos|length > 0 %}	
+         <div class="contenedor">
+            <h2 class="titulo">TODOS LOS ATRACTIVOS</h2>
+            <div class="galeria-port">
+              {% for atractivo in atractivos %}
+                <div class="item imagen-port">
+                  <img src="{{atractivo.imagen_atractivo.url}}" alt="{{atractivo.nombre}}">
+                    <p>{{atractivo.nombre}}</p>
+                </div>
+              {% endfor %}
+            </div>
+         </div>
+      {% endif %}
+    </section>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-image" src="" alt="">
+        <p id="modal-description"></p>
+      </div>
+    </div>
+
+
+
+    
+    
+
+
+</div>
 {% endblock %}
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 {% block javascript %}
-
+  <script src= {% static 'publica/js/atractivos.js'%}></script>
 {% endblock %}
+ 

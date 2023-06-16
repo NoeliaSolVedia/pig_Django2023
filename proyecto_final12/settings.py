@@ -37,15 +37,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #  'django.contrib.admin',  # Utiliza el autodiscover para obtener el admin de todas las aplicaciones en "INSTALLED_APPS"
+    #  'django.contrib.admin.apps.SimpleAdminConfig',  # No utiliza el autodiscover se debe hacer todo a mano"
+    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'publica',
     'administracion',
+    'colorfield',
 ]
+
+X_FRAME_OPTIONS='SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,7 +91,7 @@ WSGI_APPLICATION = 'proyecto_final12.wsgi.application'
 DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'BD_turismo',
+         'NAME': 'BD_IRPANIA',
          'USER': 'postgres',
          'PASSWORD': '1234',
          'HOST': 'localhost',
