@@ -1,0 +1,30 @@
+{% extends './base.html' %}
+{% block titulo %}Login{% endblock titulo %}
+
+{% block contenido %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/publica/css/login.css'%}?v={% now 'U' %}"> 
+  <form  method="POST" class="formulario">
+    {% csrf_token %}
+    <h1>LOGIN</h1>
+    <div class="col-md-12">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{message}}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="contenedor">
+        <div class="input-contenedor">
+            <i class="fa-solid fa-user fa-xl icon" style="color: #bb40dd;"></i>
+            {{ form.username }}
+        </div>
+        <div class="input-contenedor">
+            <i class="fas fa-key fa-xl icon" style="color: #bb40dd;"></i>
+            {{ form.password }}
+        </div>
+        <button class="btn_acceso" type="submit">INGRESAR</button><br>
+        <p>¿No tienes una cuenta? <a class="link" href="{% url 'registrarse' %}">Registrate </a></p>
+    </div>
+  </form> 
+{% endblock %}

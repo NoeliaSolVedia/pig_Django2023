@@ -1,0 +1,36 @@
+{% extends './base.html' %}
+{% block titulo %}Registrarse{% endblock titulo %}
+{% block contenido %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/publica/css/login.css'%}?v={% now 'U' %}"> 
+  <form  method="POST" class="formulario">
+  {% csrf_token %}
+    <h1>REGISTRO DE USUARIO</h1>
+    <p>Para finalizar su registro a continuación complete los datos solicitados:</p>
+    <div class="col-md-12">
+      {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}" role="alert">
+              {{message}}
+          </div>
+      {% endfor %}
+    </div>
+    <div class="contenedor">
+      <div class="input-contenedor">
+        <i class="fa-solid fa-user fa-xl icon" style="color: #bb40dd;"></i>
+        {{ form.username }}
+      </div>
+      <div class="error">{{form.username.errors}}</div>
+      <div class="input-contenedor">
+        <i class="fas fa-lock fa-xl icon" style="color: #bb40dd;"></i>
+        {{ form.password1 }}
+      </div>
+      <div class="error">{{form.password1.errors}}</div>
+      <div class="input-contenedor">
+        <i class="fas fa-key fa-xl icon" style="color: #bb40dd;"></i>
+        {{ form.password2 }}
+      </div>
+      <div class="error">{{form.password2.errors}}</div>
+      <button class="btn_acceso" type="submit">REGISTRARSE</button><br>
+    </div>
+  </form> 
+{% endblock contenido %}

@@ -1,0 +1,66 @@
+{% extends "./base.html" %}
+{% block titulo %}
+    Contacto
+{% endblock titulo %}
+{% block contenido %}
+  <!-- Main -->
+  {% load static %}
+  {% comment %} <script src={% static "js/registro.js" %}></script> {% endcomment %}
+  <link rel="stylesheet" href="{% static '/publica/css/registro.css'%}?v={% now 'U' %}">  
+    <div class="contenedor-flex fondo_registro">
+      <div class="suscripcion">
+        <article class="susc1">
+          <h1 class="texto1">REGISTRO </h1>
+          <p class="texto2">Introduce tus datos y podras tener acceso a toda la información turística que podemos brindarte sobre nuestra hermosa provincia. 
+        </article>
+        <article class="susc2">
+           <p class="texto2">Los datos proporcionados en este formulario se conservarán mientras no solicite su baja y no se cederán a terceros.</p>
+        <article class="susc2">
+           <div class="caja">
+               <h3 class="texto2">¿En qué podemos ayudarte?</h3>
+                   <table align="center" border="1" bgcolor="white">
+                       <tr align="center" >
+                           <th>  Puedes contactar con nosotros a través de estos canales  y recibir todos tipo de asesoramiento.</th>
+                       </tr>
+                       <tr align="center">
+                           <td><i class="fa-solid fa-house-laptop"></i> Calle Cerro Aguilar esq. Yavi - San Salvador de Jujuy</td>
+                       </tr>
+                       <tr align="center">
+                           <td><i class="fa-solid fa-envelope"></i><a href="mailto:info@securit.com"> mail@mail.com</a></td>
+                       </tr>
+                       <tr align="center">
+                           <td><i class="fa-solid fa-phone"></i> 0800 555 1234</td>
+                       </tr>                           
+                   </table> <br>
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.135552748572!2d-65.30012928953752!3d-24.20203168513714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b0f52eeabeadb%3A0xb0824036c6b5b4a9!2sCalle%20Yavi%20%26%20Cerro%20Aguilar%2C%20San%20Salvador%20de%20Jujuy%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1683847030797!5m2!1ses-419!2sar" width="700" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           </div>             
+        </article>
+      </div>
+      <div class="formulario section">
+        <form novalidate class="estilo_form" id="registro-form" name="registro-form" action="{% url "registro" %}" method="post">
+          {% csrf_token %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+              {{message}}
+            </div>
+          {% endfor %}
+          <div class="form-row">
+            {% for campo in registro_form %}
+              <!--Grid column-->
+              <div class="form-group col-md-12">
+                <label for="name" class="">{{ campo.label }}</label>
+                {{campo}}
+                <div>{{campo.errors}}</div>
+              </div>
+            {% endfor %}
+          </div>
+          <b><a href="politica.html">VER -> Política de Privacidad y condiciones de uso.</a></p> <br></b>
+          <input type="submit" value="ENVIAR">
+        </form>
+      </div>
+    </div> 
+
+{% endblock contenido %}
+
+
+

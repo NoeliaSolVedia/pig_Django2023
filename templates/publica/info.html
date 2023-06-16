@@ -1,0 +1,39 @@
+{% extends './base.html' %}
+
+{% block titulo %}Información Turística{% endblock titulo %}
+
+{% block contenido %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/publica/css/base.css'%}?v={% now 'U' %}">  
+  <section class="portafolio">
+    <div class="contenedor">
+        <h2 class="titulo">Información Turística</h2>
+        <div class="galeria-port">
+            <div class="imagen-port">
+              <img src="{% static '/img/mapa_tilcara.png'%}" alt="Ciudad de Tilcara">
+              <div class="hover-galeria">
+                <a target="_blank" href={% static '/pdf/mapa-Tilcara.pdf'%}>MAPA DE TILCARA &nbsp; (descargar)</a>
+              </div>
+            </div>
+            <div class="imagen-port">
+              <img src="{% static '/img/mapa_jujuy.png'%}" alt="San Salvador de Jujuy">
+              <div class="hover-galeria">
+                <a target="_blank" href={% static '/pdf/mapa-turistico-Jujuy.pdf'%}>MAPA TURÍSTICO (descargar)</a>
+              </div>
+            </div>
+            <div class="imagen-port">
+                <img src="{% static '/img/folleto_purmamarca.png'%}" alt="Folleto de Purmamarca">
+                <div class="hover-galeria">
+                  <a target="_blank" href={% static '/pdf/folleto-Purmamarca.pdf'%}>FOLLETO DE PURMAMARCA (descargar)</a>
+                </div>
+            </div>
+            <div class="imagen-port">
+                <img src="{% static '/img/devocion.png'%}" alt="Casabindo">
+                <div class="hover-galeria">
+                  <a target="_blank" href={% static '/pdf/Devocion-en-las-Alturas.pdf'%}>ARTE, FÉ Y TRADICIONES (descargar)</a>
+                </div>
+              </div>            
+        </div>
+    </div>
+  </section>
+{% endblock contenido %}

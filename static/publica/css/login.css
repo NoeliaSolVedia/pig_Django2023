@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    background: url("/static/img/hornocal1.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contenedor{
+    width: 100%;
+    padding: 15px;
+}
+.formulario{
+    background: #fff;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 3px;
+}
+h1{
+    text-align: center;
+    color: #1a2537;
+    font-size: 35px;
+    padding-top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+input[type="text"],
+input[type="password"]{
+    font-size: 20px;
+    width: 82%;
+    padding: 10px;
+    border: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.input-contenedor{
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+}
+.icon{
+    min-width: 50px;
+    text-align: center;
+    color: #999;
+}
+.btn_acceso{
+    border: none;
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    background:  #2888ef;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn_acceso:hover{
+    background: cadetblue;
+}
+p{
+    text-align: center;
+}
+.link{
+    text-decoration: none;
+    color: #1a2537;
+    font-weight: 600;
+}
+.link:hover{
+     color: cadetblue;
+}
+@media(min-width:600px)
+{
+    .formulario{
+        margin: auto;
+        width: 500px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 2%;
+    }
+}

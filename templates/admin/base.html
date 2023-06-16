@@ -1,0 +1,21 @@
+{% extends 'admin/base.html' %}
+
+{% block extrastyle %}{{ block.super }}
+<style>
+{% comment %}  :root {
+
+  --primary: #598f4d;
+  --secondary: #70a464;
+  --link-fg: #081c9c;
+  --link-selected-fg: #8f5bb2;
+  --body-fg: #333;
+  --body-bg: #ffff;
+  --body-quiet-color: #666;
+  --body-loud-color: #000;
+  --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
+  --selected-bg: #e4e4e4; /* E.g. selected table cells */ 
+  --selected-row: #ffff;
+  
+} {% endcomment %}
+</style> 
+{% endblock %}

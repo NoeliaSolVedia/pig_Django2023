@@ -1,0 +1,69 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Atractivos{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">Atractivos</h1>
+</div>
+<div class="card">
+    <div class="card-header borde">
+        <h3>Filtros</h3>
+    </div>
+    <div class="card-body borde">
+        <form action="">
+            <div class="row">
+                <div class="col-3">
+                    <div class="md-form mb-0">
+                        <label for="name" class="">Nombre</label>  
+                        <input type="text" 
+                              id="nombre" 
+                              name="nombre"
+                              placeholder="Ingrese el nombre" 
+                              class="form-control">
+                    </div>
+                </div>
+                <div class="col-3 ">
+                    <button class="btn btn-primary mt-4">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div class="card borde">
+    <div class="card-body borde">
+        <a name="" id="" class="btn btn-success" href="{% url 'atractivos_nuevo' %}" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Ubicacion</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% load static %}
+                {% for atractivo in atractivos %}
+                    <tr>
+                        <td>{{atractivo.id}}</td>
+                        <td>{{atractivo.nombre}}</td>
+                        <td>{{atractivo.tipo}}</td>
+                        <td>{{atractivo.ubicacion}}</td>
+                        <td><img src={{atractivo.imagen_atractivo.url}} alt="" width="150" height="100"></td>
+                        <td>
+                            <a href="{% url 'atractivos_editar' atractivo.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'atractivos_eliminar' atractivo.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+    
