@@ -24,40 +24,76 @@ section{
 	background-color: white;
 }
 #m1{
-	background-color: #ffdc0c;
+	background-image: url("/static/img//amarillo.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #ffdc0c; */
 }
 #m2{
-	background-color: #f07414;
+	background-image: url("/static/img//naranja.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #f07414; */
 }
 #m3{
-	background-color: #e0141c;
+	background-image: url("/static/img//rojo.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #e0141c; */
 }
 #m4{
-	background-color: #94377c;
+	background-image: url("/static/img//morado.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #94377c; */
 }
 #m5{
-	background-color: #2756b4;
+	background-image: url("/static/img//azul.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #2756b4; */
 }
 #m6{
-	background-color: #16a33c;
+	background-image: url("/static/img//verde.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #16a33c; */
 }
 #m7{
-	background-color: #ffdc0c;
+	background-image: url("/static/img//amarillo.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #ffdc0c; */
 }
 #m8{
-	background-color: #f07414;
+	background-image: url("/static/img//naranja.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #f07414; */
 }
 #m9{
-	background-color: #e0141c;
+	background-image: url("/static/img//rojo.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #e0141c; */
 }
 #m10{
-	background-color: #94377c;
+	background-image: url("/static/img//morado.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #94377c; */
 }
 #m11{
-	background-color: #2756b4;
+	background-image: url("/static/img//azul.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #2756b4; */
 }
 #m12{
-	background-color: #16a33c;
+	background-image: url("/static/img//verde.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+	/* background-color: #16a33c; */
 }
 #inicio h1{
 	font-size: 68px;
@@ -151,13 +187,13 @@ img{
   row-gap: 5px;
 }
 .imagen{
-	width: 350px;
-	height: 250px;
+	width: 400px;
+	height: 300px;
 	align-items: center;
 	row-gap: 5px; 
   }
 .titulo{
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 700;
 	color: black;
 	margin: 0;

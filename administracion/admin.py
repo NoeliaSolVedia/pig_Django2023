@@ -50,17 +50,15 @@ class TuristaAdmin(admin.ModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "consulta":
             try:
-                modelo_a_id = request.resolver_match.args[0]
-                modelo_a = Turista.objects.get(id=modelo_a_id)
-                kwargs["queryset"] = Consulta.objects.filter(consulta__email=modelo_a.email)
+                turista_id = request.path.split('/')[-3] # se obtiene el id desde la url
+                modelo_a = Turista.objects.get(id=turista_id)
+                kwargs["queryset"] = Consulta.objects.filter(email=modelo_a.email)
             except (IndexError, ValueError, Turista.DoesNotExist):
                 pass
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 class ConsultaAdmin(admin.ModelAdmin):
     list_display = ( 'fecha_consulta','email','nombre','apellido')
-
-
 
 sitio_admin = PF12AdminSite(name='PF12Admin')
 """ sitio_admin.register(Guia, GuiaAdmin)

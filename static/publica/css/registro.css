@@ -16,7 +16,6 @@
 }
 .estilo_form{
     background-image: url("/static/img/wipala_form.png");
-    /* filter: brightness(200%);  */
   /*  background-repeat:no-repeat;*/
     background-size: cover;
     border-radius: 25px;
@@ -53,7 +52,6 @@
     padding-left: 10px;
     border: none;
     outline: none;
-    /* border-bottom: 2px solid black; */
     border-radius: 20px;
     background-color: rgba(154, 108, 108, 0.15);
     box-shadow: inset -3px -3px rgba(0,0,0, 0.6);
@@ -80,9 +78,7 @@
     min-height: 100px;
   } */
 
-  .estilo_form textarea:focus, input:focus, input[type]:focus {
-    /* border-color: white; */
-    /* outline: white; */
+.estilo_form textarea:focus, input:focus, input[type]:focus {
     background-color: white;
     box-shadow: inset -3px -3px rgba(0,0,0, 0.6);
   }
@@ -141,32 +137,57 @@
     }
 }
 
-/********* FIN Estilos pagina Registro (registro.html) ********/
+/********* Registro (registro.html) ********/
 
 
-/********* INICIO Estilos pagina Politica (politica.html) ********/
-
-.formato_main{
-    margin: 0px 20px;
-}
-
-.titulo_politica{
-    text-align: center;
-    margin: 20px 0px;
-}
-
-.subtitulo{
-    font-size: 20px;
-    margin: 15px 0px 10px 20px;
-}
-
-.formato_texto{
-    font-size: 15px;
+/********* Politica (politica.html) ********/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  .modal-contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    max-width: 800px;
+    max-height: 80%;
+    overflow-y: scroll;
     text-align: justify;
-}
+    padding: 15px;
+  }
+  .modal-contenido h4{
+   text-align: center;
+   margin-top: 30px;
+   color:rgb(9, 9, 135);
+   text-decoration: underline
+  }
+  .cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 
-.lista {
-    list-style: square inside;
-}
+ .cerrar-modal:hover,
+ .cerrar-modal:focus {
+  color: rgb(3, 30, 64);
+  background-color:  rgb(169, 185, 205);
+  cursor: pointer;
+ }
+ 
+/********* Politica (politica.html) ********/
 
-/********* FIN Estilos pagina Politica (politica.html) ********/

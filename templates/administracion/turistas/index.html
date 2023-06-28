@@ -1,0 +1,92 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Turistas{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">TURISTAS</h1>
+</div>
+<div class="card">
+    <div class="card-header borde">
+        <h3>Filtros</h3>
+    </div>
+    <div class="card-body borde">
+        <form action="{% url 'turistas_index' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-3">
+                    <div class="md-form mb-0">
+                        <label for="nombre" class="text-filtro">Nombre:</label>  
+                        <input type="text" id="nombre_buscado" name="nombre_buscado"
+                              placeholder="Ingrese el nombre" class="form-control">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="md-form mb-0">
+                        <label for="apellido" class="text-filtro">Apellido:</label>  
+                        <input type="text" id="apellido_buscado" name="apellido_buscado"
+                              placeholder="Ingrese el apellido" class="form-control">
+                    </div>
+                </div>
+                <div class="col-3 ">
+                    <button class="btn btn-primary mt-4">Buscar</button>
+                </div>
+                {% if message %}
+                  <div class="mensaje">
+                    <h5>{{message}}</h5>  
+                  </div>
+                 {% endif %}
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div class="card borde">
+    <div class="card-body borde">
+        <a name="" id="" class="btn btn-success" href="{% url 'turistas_nuevo' %}" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        <!-- bs5-table-defaul -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Nacimiento</th>
+                    <th>País</th>
+                    <th>Ciudad</th>
+                    <th>Atractivos</th>
+                    <th>Aceptar</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% load static %}
+                {% for turista in entity %}
+                    <tr>
+                        <td>{{turista.id}}</td>
+                        <td>{{turista.nombre}}</td>
+                        <td>{{turista.apellido}}</td>
+                        <td>{{turista.email}}</td>
+                        <td>{{turista.nacimiento}}</td>
+                        <td>{{turista.pais}}</td>
+                        <td>{{turista.ciudad}}</td>
+                        <td>{{turista.atractivos}}</td>
+                        <td>{{turista.aceptar}}</td>
+                        <td>
+                            <a href="{% url 'turistas_editar' turista.id %}" title="Editar" class="btn btn-warning btn-index"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'turistas_eliminar' turista.id %}" title="Eliminar" class="btn btn-danger btn-index"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>                    
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            {% include 'administracion/paginator.html' %}
+        </div> 
+    </div>
+</div>
+
+{% endblock %}
+    

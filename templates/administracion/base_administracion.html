@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,90 +11,86 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     <style>
         .iconos{
-          padding-left:30px;
-          font-size: 20px;
-          background-color: #fff;
-          font-weight: 700;
-          text-align:center;     
-        }
-        .alinear {
-          text-align:center;
-          background-color: #fff;
-        }
-        .color_nav{
-            background-color: #68a066;
-        }
-        .icono_user{
-            border-radius: 50%;
-            border-width: 2px;
-            background-color: white;
-        }
+            padding-left: 20px;
+            padding-top:15px;
+            font-size: 20px;
+            background-color: #fff;
+            font-weight: 700;
+            text-align:center;     
+          }
+          .alinear {
+            padding: 0;
+            text-align:center;
+            background-color: #fff;
+          }
+          .icono_user{
+              border-radius: 40%;
+              border-width: 5px;
+              background-color: white;
+          }
     </style>
 </head>
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-light color_nav">
+    <nav class="sb-topnav navbar navbar-expand navbar-light" style="background-color: #68a066;">
+        <img src="{% static '/img/LOGO_irpania.png'%}" alt="IRPAÑA logo" width="" height="50">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="{% url 'inicio_administracion' %}">ADMINISTRACION</a>
+        <a class="navbar-brand ps-2" href="{% url 'inicio_administracion' %}" style="color:white; font-size: 25px;">ADMINISTRACION</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
         <!-- Navbar-->
         <div class="img-user">
-            <img class="icono_user" src="{% static '/img/user_women.png'%}" alt="" width="35" height="35">
+            <img class="icono_user" src="{% static '/img/users1.png'%}" alt="" width="35" height="35">
         </div>
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    {% comment %} <i class="fas fa-user fa-fw"></i> {% endcomment %}
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
-                </ul>
-
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'admin:index' %}">Admintración de Usuarios</a>
             </li>
-        </ul>
+            {% comment %} 
+                <li class="nav-item">
+                 <a class="nav-link" href="#">Link</a>
+                </li> {% endcomment %}
+          </ul>
     </nav>
     <div id="layoutSidenav" >
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-light alinear" id="sidenavAccordion">
                 <div class="sb-sidenav-menu" >
-                    <div class="sb-sidenav-menu-heading">
-                        <img src="{% static '/img/LOGO_irpania.png'%}" alt="IRPAÑA logo" width="" height="80">
-                    </div>
                     <div class="nav iconos">
                         <a class="nav-link" href={% url 'inicio' %}>
-                            <div class="sb-nav-link-icon"><img src="{% static '/img/ir.png'%}" alt="inicio" width="35" height="35"></i></div>
+                            <div class="sb-nav-link-icon"><img src="{% static '/img/ir.png'%}" alt="inicio" width="38" height="40"></i></div>
                             Inicio
                         </a>
-                        <a class="nav-link" href={% url 'guias_index' %}>
-                            <div class="sb-nav-link-icon"><img src="{% static '/img/guia.png'%}" alt="" width="35" height="35" ></i></div>
-                            Guías
-                        </a>
-                        <a class="nav-link" href="">
-                            <div class="sb-nav-link-icon"><img src="{% static '/img/turista.png'%}" alt="" width="35" height="35"></i></div>
+                        <a class="nav-link" href={% url 'turistas_index' %}>
+                            <div class="sb-nav-link-icon"><img src="{% static '/img/turista.png'%}" alt="" width="40" height="40"></i></div>
                             Turistas
                         </a>
+                        <a class="nav-link" href={% url 'consultas_index' %}>
+                            <div class="sb-nav-link-icon"><img src="{% static '/img/consulta.png'%}" alt="" width="40" height="45"></i></div>
+                            Consultas
+                        </a>
                         <a class="nav-link" href={% url 'eventos_index' %}>
-                            <div class="sb-nav-link-icon"><img src="{% static '/img/evento.png'%}" alt="" width="35" height="35"></i></div>
+                            <div class="sb-nav-link-icon"><img src="{% static '/img/evento.png'%}" alt="" width="40" height="40"></i></div>
                             Eventos
                         </a>
+                        <a class="nav-link" href={% url 'guias_index' %}>
+                            <div class="sb-nav-link-icon"><img src="{% static '/img/guia.png'%}" alt="" width="40" height="40" ></i></div>
+                            Guías
+                        </a>
                         <a class="nav-link" href={% url 'atractivos_index' %}>
-                            <div class="sb-nav-link-icon"><img src="{% static '/img/atractivo.png'%}" alt="IRPAÑA logo" width="35" height="35"></i></div>
+                            <div class="sb-nav-link-icon"><img src="{% static '/img/atractivo.png'%}" alt="" width="40" height="40"></i></div>
                             Atractivos
                         </a>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer" style="text-aling:center; background-color: #86977f;" >
+                <div class="sb-sidenav-footer" style="text-aling:center; background-color: #2f0808; color: white;" >
                     <h5>Inicio sesión como:</h5>
                     <h5>{{ user.username }}</h5>
                 </div>
             </nav>
         </div>
         <div id="layoutSidenav_content">
-            <main style="background-image: url({% static '/img/tela.jpg'%}); height:250vh;">
+           <main style="background-image: url({% static '/img/tela.png'%}); height:600vh;"> 
                 <div class="container-fluid px-4">
                     {% block contenido %} {% endblock %}
                 </div>
@@ -106,6 +101,7 @@
     <script src="{% static '/administracion/js/scripts.js'%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

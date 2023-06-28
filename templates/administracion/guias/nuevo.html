@@ -5,17 +5,18 @@
 {% block contenido %}
 {% load static %}
 <link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
-<div class="titulo">
+ <div class="titulo">
     <h1 class="mt-4">Guias - Nuevo</h1>
-</div>
-
-<div class="card">
-    <div class="card-header">Creacion de guias</div>
+ </div>
+ <div class="card">
+    <div class="card-header borde">
+        <h4>Creación de guía</h4>
+    </div>
     <div class="card-body">
         <form action="{% url 'guias_nuevo' %}" method="post" novalidate enctype="multipart/form-data">
             {% csrf_token %}
             {% include 'administracion/guias/form.html' %}
         </form>
     </div>
-</div>
+ </div>
 {% endblock %}

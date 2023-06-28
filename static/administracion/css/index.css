@@ -1,22 +1,35 @@
 .titulo{
-/*     background-image: url("/static/img/fondo_aguayob.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
-    height: 50vh; */
-   background-color: white;
-   color: black;
-   padding: 5px, 10px;
-   text-align: center;
+    background-color: white;
+    color: black;
+    padding: 5px, 10px;
+    text-align: center;
+ } 
 
+.mensaje{
+   background-color: rgb(246, 222, 222);
+   color: #2f0808;
+   font-weight: 700;
+   margin-top:10px;
+   padding: 5px;
 } 
 
-.borde{
-    border-style: ridge;
+.text-filtro{
+  color:black;
+  font-weight: 500;
+  font-size: 20px;
 }
 .fondo_index{
-    background-image: url("/static/img/tela.jpg");
-    /* filter: brightness(200%);  */
-/*     background-repeat:no-repeat;
-    background-size: cover; */
-    height: 250vh;
+    text-align: center;
+    margin-top: 45px;
+    background-color: transparent;
+}
+
+.btn-index{
+    margin:2.5px;
+}
+
+.nav-pills .nav-link.active,
+.show>.nav-pills .nav-link{
+    background: #0d6b3d !important;
+    margin-left: 10px;
 }

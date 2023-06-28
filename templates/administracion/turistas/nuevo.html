@@ -1,0 +1,23 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Nuevo turista{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">Turistas - Nuevo</h1>
+</div>
+
+<div class="card">
+    <div class="card-header borde">
+        <h4>Creación de turista</h4>
+    </div>
+    <div class="card-body">
+        <form action="{% url 'turistas_nuevo' %}" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'administracion/turistas/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

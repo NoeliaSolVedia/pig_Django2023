@@ -5,33 +5,50 @@
 {% block contenido %}
   {% load static %}
   <link rel="stylesheet" href="{% static '/publica/css/atractivos.css'%}?v={% now 'U' %}"> 
-  <div class="contenedor">
     <section class="buscar">
-      <form action="">
-        <input type="text" class="barra-busqueda" id="barra-busqueda" placeholder="Buscar">
+      <form action="{% url 'atractivos_todos' 'buscar' %}" method="POST">
+        {% csrf_token %}
+        {% if message %}
+          <input type="text" class="barra-busqueda" id="palabra_buscada" name="palabra_buscada" placeholder="{{message}}">
+        {% else %}
+          <input type="text" class="barra-busqueda" id="palabra_buscada" name="palabra_buscada" placeholder="BUSCAR">
+        {% endif %}
       </form>
       <div class="categorias" id="categorias">
-        <a href="#" class="activo">Todos</a>
-        <a href="#">Naturales</a>
-        <a href="#">Culturales</a>
-        <a href="#">Religiosos</a>
-        <a href="#">Deportivos</a>
+        <a type="button" href="{% url 'atractivos_todos' 'todos' %}" class="activo btn btn-outline-primary">TODOS</a>
+        <a type="button" href="{% url 'atractivos_todos' 'naturales' %}" class="btn btn-outline-primary">NATURALES</a>
+        <a type="button" href="{% url 'atractivos_todos' 'culturales' %}" class="btn btn-outline-primary">CULTURALES</a>
+        <a type="button" href="{% url 'atractivos_todos' 'religiosos' %}" class="btn btn-outline-primary">RELIGIOSOS</a>
+        <a type="button" href="{% url 'atractivos_todos' 'deportivos' %}" class="btn btn-outline-primary">DEPORTIVOS</a>
       </div>
+      <form action="{% url 'atractivos_todos' 'guia' %}" method="GET">
+        <div class="select_guia row">
+          <select name="guia_id">
+            {% for guia in guias %}
+                <option value="{{ guia.id }}">{{ guia.nombre }} {{ guia.apellido }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn btn-outline-primary btn_guia">BUSCAR POR GUIA</button>
+        </div>
+      </form>
     </section>
 
     <section class="portafolio">
       {% if atractivos|length > 0 %}	
          <div class="contenedor">
-            <h2 class="titulo">TODOS LOS ATRACTIVOS</h2>
+            <h2 class="titulo">{{ title }}:{{atractivos|length}}</h2>
             <div class="galeria-port">
               {% for atractivo in atractivos %}
                 <div class="item imagen-port">
-                  <img src="{{atractivo.imagen_atractivo.url}}" alt="{{atractivo.nombre}}">
-                    <p>{{atractivo.nombre}}</p>
+                  <img src="{{atractivo.imagen_atractivo.url}}" alt="{{atractivo.nombre}} - {{atractivo.ubicacion}}">
                 </div>
               {% endfor %}
             </div>
          </div>
+      {% else %} 
+        <div class="contenedor">
+          <h2 class="titulo">{{ title }} : {{atractivos|length}}</h2>
+        </div>  
       {% endif %}
     </section>
 
@@ -42,14 +59,6 @@
         <p id="modal-description"></p>
       </div>
     </div>
-
-
-
-    
-    
-
-
-</div>
 {% endblock %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -6,21 +6,22 @@
 {% load static %}
 <link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
 <div class="titulo">
-    <h1 class="mt-4">Atractivos</h1>
+    <h1 class="mt-4">ATRACTIVOS</h1>
 </div>
 <div class="card">
     <div class="card-header borde">
         <h3>Filtros</h3>
     </div>
     <div class="card-body borde">
-        <form action="">
+        <form action="{% url 'atractivos_index' %}" method="POST">
+            {% csrf_token %}
             <div class="row">
                 <div class="col-3">
                     <div class="md-form mb-0">
-                        <label for="name" class="">Nombre</label>  
+                        <label for="name" class="text-filtro">Nombre:</label>  
                         <input type="text" 
-                              id="nombre" 
-                              name="nombre"
+                              id="nombre_buscado" 
+                              name="nombre_buscado"
                               placeholder="Ingrese el nombre" 
                               class="form-control">
                     </div>
@@ -28,6 +29,11 @@
                 <div class="col-3 ">
                     <button class="btn btn-primary mt-4">Buscar</button>
                 </div>
+                {% if message %}
+                  <div class="mensaje">
+                    <h5>{{message}}</h5>  
+                  </div>
+                {% endif %}
             </div>
         </form>
     </div>
@@ -48,7 +54,7 @@
             </thead>
             <tbody>
             {% load static %}
-                {% for atractivo in atractivos %}
+                {% for atractivo in entity %}
                     <tr>
                         <td>{{atractivo.id}}</td>
                         <td>{{atractivo.nombre}}</td>
@@ -56,14 +62,19 @@
                         <td>{{atractivo.ubicacion}}</td>
                         <td><img src={{atractivo.imagen_atractivo.url}} alt="" width="150" height="100"></td>
                         <td>
-                            <a href="{% url 'atractivos_editar' atractivo.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
-                            <a href="{% url 'atractivos_eliminar' atractivo.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="{% url 'atractivos_editar' atractivo.id %}" title="Editar" class="btn btn-warning btn-index"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'atractivos_eliminar' atractivo.id %}" title="Eliminar" class="btn btn-danger btn-index"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>                    
                 {% endfor %}
             </tbody>
         </table>
+        <div>
+            {% include 'administracion/paginator.html' %}
+        </div> 
     </div>
-</div>
+</div> 
 {% endblock %}
+
+
     

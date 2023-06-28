@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="{% static '/publica/css/login.css'%}?v={% now 'U' %}"> 
   <form  method="POST" class="formulario">
   {% csrf_token %}
-    <h1>REGISTRO DE USUARIO</h1>
+    <h1>{{ title }}</h1>
     <p>Para finalizar su registro a continuación complete los datos solicitados:</p>
     <div class="col-md-12">
       {% for message in messages %}

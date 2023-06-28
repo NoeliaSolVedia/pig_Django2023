@@ -1,0 +1,84 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Consultas{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">CONSULTAS</h1>
+</div>
+<div class="card">
+    <div class="card-header borde">
+        <h3>Filtros</h3>
+    </div>
+    <div class="card-body borde">
+        <form action="{% url 'consultas_index' %}" method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-3">
+                    <div class="md-form mb-0">
+                        <label for="nombre" class="text-filtro">Nombre:</label>  
+                        <input type="text" id="nombre_buscado" name="nombre_buscado"
+                              placeholder="Ingrese el nombre" class="form-control">
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="md-form mb-0">
+                        <label for="apellido" class="text-filtro">Apellido:</label>  
+                        <input type="text" id="apellido_buscado" name="apellido_buscado"
+                              placeholder="Ingrese el apellido" class="form-control">
+                    </div>
+                </div>
+                <div class="col-3 ">
+                    <button class="btn btn-primary mt-4">Buscar</button>
+                </div>
+                {% if message %}
+                  <div class="mensaje">
+                    <h5>{{message}}</h5>  
+                  </div>
+                 {% endif %}
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div class="card borde">
+    <div class="card-body borde">
+        <a name="" id="" class="btn btn-success" href="{% url 'consultas_nuevo' %}" role="button"> <i class="fa-solid fa-circle-plus"></i> Nuevo</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% load static %}
+                {% for consulta in entity %}
+                    <tr>
+                        <td>{{consulta.id}}</td>
+                        <td>{{consulta.fecha_consulta}}</td>
+                        <td>{{consulta.nombre}}</td>
+                        <td>{{consulta.apellido}}</td>
+                        <td>{{consulta.email}}</td>
+                        <td>{{consulta.mensaje}}</td>
+                        <td>
+                            <a href="{% url 'consultas_editar' consulta.id %}" title="Editar" class="btn btn-warning btn-index"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'consultas_eliminar' consulta.id %}" title="Eliminar" class="btn btn-danger btn-index"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>                    
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+            {% include 'administracion/paginator.html' %}
+        </div> 
+    </div>
+</div>
+{% endblock %}
+    

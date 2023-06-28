@@ -33,7 +33,7 @@
                 <a class="nav-link active" href="{% url 'inicio' %}">BIENVENIDOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link"  href="{% url 'atractivos_model' %}">ATRACTIVOS</a>
+                <a class="nav-link"  href="{% url 'atractivos_todos' 'todos' %}">ATRACTIVOS</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'agenda_model' %}">AGENDA</a>
@@ -78,7 +78,7 @@
     <footer class="pie-pagina">
       <div class="grupo-1">
           <div class="box">
-              <a href="#">CONTÁCTANOS</a> 
+              <a href="{% url 'registro' %}">CONTÁCTANOS</a> 
               <p>Dejanos tu mensaje o sugerencia y nos pondremos en contacto con vos</p>
           </div>
           <div class="box">

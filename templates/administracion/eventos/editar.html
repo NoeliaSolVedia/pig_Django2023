@@ -10,9 +10,11 @@
 </div>
 
 <div class="card">
-    <div class="card-header">Edicion de evento</div>
+    <div class="card-header borde">
+        <h4>Edición de evento</h4>
+    </div>
     <div class="card-body">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% include 'administracion/eventos/form.html' %}
         </form>

@@ -102,7 +102,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 col-lg-6 pl-0 pr-0">
-          <img src="{% static '/img/punta_corral1.png'%}" alt="Punta Corral" />
+          <img src="{% static '/img/calendario.jpg'%}" alt="Punta Corral" />
         </div>
         <div class="col-12 col-lg-6 pt-4 pb-4">
           <h4>Peregrinación al Santuario de Punta Corral</h4>
@@ -120,21 +120,21 @@
     <h3 class="titulo2">Conocé algunos de nuestros Guías</h3>
     <div class="cards">
         <div class="card">
-          <img class="zoom" alt="Maria Mamani" src="{% static '/img/guia1.jpg'%}" />
+          <a href="{% url 'guias_model' %}"><img class="zoom" alt="Maria Mamani" src="{% static '/img/guia1.jpg'%}"/></a>
           <div class="contenido-texto-card">
             {% filter upper %}<h5>Maria Mamani</h5>{% endfilter %}
             <p>Especialista en circuitos convencionales</p>
           </div>
         </div>
         <div class="card">
-          <img class="zoom" alt="Carmen Humana" src="{% static '/img/guia2.jpg'%}" />
+          <a href="{% url 'guias_model' %}"><img class="zoom" alt="Carmen Humana" src="{% static '/img/guia2.jpg'%}" /></a>
           <div class="contenido-texto-card">
             {% filter upper %}<h5>Carmen Humana</h5>{% endfilter %}
             <p>Especialista en turismo activo y guía personal</p>
           </div>
         </div>
         <div class="card">
-          <img class="zoom" alt="Sergio Aucapiña" src="{% static '/img/guia3.jpg'%}" />
+          <a href="{% url 'guias_model' %}"><img class="zoom" alt="Sergio Aucapiña" src="{% static '/img/guia3.jpg'%}" /></a>
           <div class="contenido-texto-card">
             {% filter upper %}<h5>Raúl Aucapiña</h5>{% endfilter %}
             <p>Especialista en region Puna-Quebrada</p>
@@ -145,7 +145,8 @@
  
   <!-- Formulario de consulta -->
   <section class="section-form">
-    <div class="form-contact">
+    <div class="centrar">
+      <div class="form-contact">
         <div class="header_form">
           <span class="header_form_span">
             <p> FORMULARIO DE CONSULTA</p>
@@ -170,6 +171,7 @@
           </div>
           <input type="submit" value="Enviar">
         </form>
+      </div>
     </div>
   </section>
  

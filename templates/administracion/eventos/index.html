@@ -6,7 +6,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
 <div class="titulo">
-    <h1 class="mt-4">Eventos</h1>
+    <h1 class="mt-4">EVENTOS</h1>
 </div>
 
 <div class="card">
@@ -14,14 +14,15 @@
         <h3>Filtros</h3>
     </div>
     <div class="card-body borde">
-        <form action="">
+        <form action="{% url 'eventos_index' %}" method="POST">
+            {% csrf_token %}
             <div class="row">
                 <div class="col-3">
                     <div class="md-form mb-0">
-                        <label for="name" class="">Nombre</label>  
+                        <label for="name" class="text-filtro">Nombre:</label>  
                         <input type="text" 
-                              id="nombre" 
-                              name="nombre"
+                              id="nombre_buscado" 
+                              name="nombre_buscado"
                               placeholder="Ingrese el nombre" 
                               class="form-control">
                     </div>
@@ -29,6 +30,11 @@
                 <div class="col-3 ">
                     <button class="btn btn-primary mt-4">Buscar</button>
                 </div>
+                {% if message %}
+                  <div class="mensaje">
+                    <h5>{{message}}</h5>  
+                  </div>
+                 {% endif %}
             </div>
         </form>
     </div>
@@ -52,7 +58,7 @@
             </thead>
             <tbody>
             {% load static %}
-                {% for evento in eventos %}
+                {% for evento in entity %}
                     <tr>
                         <td>{{evento.id}}</td>
                         <td>{{evento.fecha_evento}}</td>
@@ -61,13 +67,16 @@
                         <td>{{evento.descripcion}}</td>
                         <td>{{evento.direccion}}</td>
                         <td>
-                            <a href="{% url 'eventos_editar' evento.id %}" title="Editar" class="btn btn-warning"><i class="fas fa-pencil"></i></a>
-                            <a href="{% url 'eventos_eliminar' evento.id %}" title="Eliminar" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            <a href="{% url 'eventos_editar' evento.id %}" title="Editar" class="btn btn-warning btn-index"><i class="fas fa-pencil"></i></a>
+                            <a href="{% url 'eventos_eliminar' evento.id %}" title="Eliminar" class="btn btn-danger btn-index"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>                    
                 {% endfor %}
             </tbody>
         </table>
+        <div>
+            {% include 'administracion/paginator.html' %}
+        </div> 
     </div>
 </div>
 

@@ -3,9 +3,9 @@
 {% block titulo %}INICIO ADMIN{% endblock%}
 
 {% block contenido %}
-
-<div class="fondo_index"> 
 {% load static %}
 <link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
-</div>
+   <div class="fondo_index"> 
+    <img src="{% static '/img/LOGO_irpaniaEF.png'%}" alt="IRPAÑA logo" width="" height="400">
+   </div>
 {% endblock %}

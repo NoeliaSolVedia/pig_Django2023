@@ -1,0 +1,23 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Nueva consulta{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">Consultas - Nuevo</h1>
+</div>
+
+<div class="card">
+    <div class="card-header borde">
+        <h4>Creación de consulta</h4>
+    </div>
+    <div class="card-body">
+        <form action="{% url 'consultas_nuevo' %}" method="post" novalidate enctype="multipart/form-data">
+            {% csrf_token %}
+            {% include 'administracion/consultas/form.html' %}
+        </form>
+    </div>
+</div>
+{% endblock %}

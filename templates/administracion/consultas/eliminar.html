@@ -1,0 +1,24 @@
+{% extends '../base_administracion.html' %}
+
+{% block titulo %}Eliminar consultas{% endblock%}
+
+{% block contenido %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/administracion/css/index.css'%}?v={% now 'U' %}">  
+<div class="titulo">
+    <h1 class="mt-4">Consultas - Baja</h1>
+</div>
+
+<div class="card">
+    <div class="card-header borde">
+        <h4>Eliminación de consulta</h4>
+    </div>
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Esta seguro que quiere eliminar la consulta? "{{ object.nombre }}"?</p>
+            <input type="submit" value="Confirmar" class="btn btn-danger">
+        </form>
+    </div>
+</div>
+{% endblock %}
